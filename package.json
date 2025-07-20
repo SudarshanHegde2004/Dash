@@ -1,0 +1,7 @@
+{
+  "name": "dash-v0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Define scripts to run client and server\""
+  }
+}
