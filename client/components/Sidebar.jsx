@@ -4,8 +4,6 @@ import {
   HomeIcon,
   CalendarIcon,
   UsersIcon,
-  ChatBubbleLeftEllipsisIcon,
-  BanknotesIcon,
   DocumentTextIcon,
   Cog6ToothIcon,
   MicrophoneIcon
@@ -13,9 +11,9 @@ import {
 
 const navItems = [
   { path: '/', label: 'Home', icon: <HomeIcon className="h-6 w-6 mr-3" /> },
-  { path: '/programs', label: 'Programs', icon: <DocumentTextIcon className="h-6 w-6 mr-3" /> },
+  { path: '/projects', label: 'Projects', icon: <DocumentTextIcon className="h-6 w-6 mr-3" /> },
   { path: '/calendar', label: 'Calendar', icon: <CalendarIcon className="h-6 w-6 mr-3" /> },
-  { path: '/members', label: 'People', icon: <UsersIcon className="h-6 w-6 mr-3" /> },
+  { path: '/members', label: 'Members', icon: <UsersIcon className="h-6 w-6 mr-3" /> },
   { path: '/settings', label: 'Settings', icon: <Cog6ToothIcon className="h-6 w-6 mr-3" /> },
 ];
 
@@ -63,7 +61,7 @@ export default function Sidebar() {
           className="bg-red-600 hover:bg-red-700 p-3 rounded-full shadow-md hover:scale-105 transition-transform duration-200"
           title="Activate Voice Assistant"
         >
-          <MicrophoneIcon className="h-8 w-8 text-white" />
+          <MicrophoneIcon className="h-6 w-6 text-white" />
         </button>
       </div>
     </div>

@@ -6,6 +6,7 @@ import Chart from '../components/Chart';
 import ToDoList from '../components/ToDoList';
 import Events from '../components/Events';
 import VoiceCommand from '../components/VoiceCommand';
+import Projects from './pages/Projects';
 
 export default function App() {
   return (
@@ -13,7 +14,6 @@ export default function App() {
       <Sidebar />
       <div className="flex-grow p-6 overflow-auto">
         <Routes>
-          {/* Dashboard route shows all widgets */}
           <Route path="/" element={
             <div>
               <DashboardCards />
@@ -25,7 +25,7 @@ export default function App() {
               <VoiceCommand />
             </div>
           } />
-          {/* Example placeholders for other sections */}
+          <Route path="/projects" element={<Projects />} /> {/* ✅ Now added */}
           <Route path="/programs" element={<div className="text-xl">Programs Page (coming soon)</div>} />
           <Route path="/calendar" element={<div className="text-xl">Calendar Page (coming soon)</div>} />
           <Route path="/members" element={<div className="text-xl">Members Page (coming soon)</div>} />

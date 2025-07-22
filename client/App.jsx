@@ -1,45 +1,41 @@
-import Sidebar from './components/Sidebar';
-import DashboardCards from './components/DashboardCards';
-import ToDoList from './components/ToDoList';
-import Events from './components/Events';
-import Chart from './components/Chart';
-import VoiceCommand from './components/VoiceCommand';
-import { callOpenAICommand } from './utils/openai';
-import { useState } from 'react';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
+import DashboardCards from '../components/DashboardCards';
+import Chart from '../components/Chart';
+import ToDoList from '../components/ToDoList';
+import Events from '../components/Events';
+import VoiceCommand from '../components/VoiceCommand';
+import Projects from './pages/Projects'; // ✅ Added import
 
 export default function App() {
-  const [aiResult, setAiResult] = useState(null);
-
-  const handleVoiceCommand = async (text) => {
-    try {
-      const res = await callOpenAICommand(text);
-      setAiResult(res.ai);
-      // TODO: parse intent and act (add task, show events, etc.)
-    } catch (e) {
-      setAiResult('AI error: ' + e.message);
-    }
-  };
-
   return (
-    <div className="flex min-h-screen bg-[#1e1e2f]">
+    <div className="flex h-screen bg-base-100">
       <Sidebar />
-      <main className="flex-1 p-8 flex flex-col gap-8 bg-[#1e1e2f]">
-        <DashboardCards />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ToDoList />
-          <Events />
-          <Chart />
-        </div>
-        <div className="flex items-center gap-6 mt-8">
-          <VoiceCommand onCommand={handleVoiceCommand} />
-          {aiResult && (
-            <div className="bg-gray-900 text-gray-100 rounded p-4 shadow max-w-xl">
-              <div className="font-bold mb-1">AI Response:</div>
-              <pre className="whitespace-pre-wrap text-sm">{aiResult}</pre>
+      <div className="flex-grow p-6 overflow-auto">
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <DashboardCards />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <Chart />
+                <ToDoList />
+                <Events />
+              </div>
+              <VoiceCommand />
             </div>
-          )}
-        </div>
-      </main>
+          } />
+          <Route path="/projects" element={<Projects />} /> {/* ✅ Now added */}
+          <Route path="/programs" element={<div className="text-xl">Programs Page (coming soon)</div>} />
+          <Route path="/calendar" element={<div className="text-xl">Calendar Page (coming soon)</div>} />
+          <Route path="/members" element={<div className="text-xl">Members Page (coming soon)</div>} />
+          <Route path="/chat" element={<div className="text-xl">Chat Page (coming soon)</div>} />
+          <Route path="/financial" element={<div className="text-xl">Financial Page (coming soon)</div>} />
+          <Route path="/expenses" element={<div className="text-xl">Expenses Page (coming soon)</div>} />
+          <Route path="/settings" element={<div className="text-xl">Settings Page (coming soon)</div>} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
     </div>
   );
 }
