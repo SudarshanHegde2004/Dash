@@ -18,7 +18,7 @@ export default function VoiceCommand() {
       return;
     }
 
-    const recognition = new SpeechRecognition();
+    const recognition = new SpeechRecognition();      
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.lang = 'en-US';

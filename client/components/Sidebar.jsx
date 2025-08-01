@@ -13,7 +13,7 @@ const navItems = [
   { path: '/', label: 'Home', icon: <HomeIcon className="h-6 w-6 mr-3" /> },
   { path: '/projects', label: 'Projects', icon: <DocumentTextIcon className="h-6 w-6 mr-3" /> },
   { path: '/calendar', label: 'Calendar', icon: <CalendarIcon className="h-6 w-6 mr-3" /> },
-  { path: '/members', label: 'Members', icon: <UsersIcon className="h-6 w-6 mr-3" /> },
+  { path: '/People', label: 'People', icon: <UsersIcon className="h-6 w-6 mr-3" /> },
   { path: '/settings', label: 'Settings', icon: <Cog6ToothIcon className="h-6 w-6 mr-3" /> },
 ];
 
