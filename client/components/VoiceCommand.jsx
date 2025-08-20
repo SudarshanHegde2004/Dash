@@ -39,27 +39,27 @@ export default function VoiceCommand() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const command = typedCommand.trim() || transcript.trim();
-    if (!command) return;
+    const prompt = typedCommand.trim() || transcript.trim();
+    if (!prompt) return;
 
-    setLastCommand(command);
+    setLastCommand(prompt);
     setTypedCommand('');
     setTranscript('');
     setIsProcessing(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/ask', {
+      const response = await fetch('http://localhost:5000/api/ai/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ command })
+        body: JSON.stringify({ prompt })
       });
 
       if (!response.ok) {
         throw new Error(await response.text());
       }
 
-      const { result } = await response.json();
-      setCommandResult(result);
+      const data = await response.json();
+      setCommandResult(data.response);
     } catch (error) {
       setCommandResult(`Error: ${error.message}`);
     } finally {

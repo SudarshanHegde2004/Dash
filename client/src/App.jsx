@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
@@ -32,6 +33,12 @@ export default function App() {
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/people" element={<People />} />
+          <Route path="/programs" element={<div className="text-xl">Programs Page (coming soon)</div>} />
+          <Route path="/members" element={<div className="text-xl">Members Page (coming soon)</div>} />
+          <Route path="/chat" element={<div className="text-xl">Chat Page (coming soon)</div>} />
+          <Route path="/financial" element={<div className="text-xl">Financial Page (coming soon)</div>} />
+          <Route path="/expenses" element={<div className="text-xl">Expenses Page (coming soon)</div>} />
+          <Route path="/settings" element={<div className="text-xl">Settings Page (coming soon)</div>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
